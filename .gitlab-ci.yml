@@ -11,6 +11,7 @@ pages:
   - git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth 1
   - cp config linux/.config
   - cd linux
+  - make olddefconfig
   - make rpm
   artifacts:
     paths:
