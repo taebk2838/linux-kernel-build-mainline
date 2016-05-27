@@ -3,7 +3,7 @@ image: centos:latest
 before_script:
   - yum -y install git epel-release "@Development Tools"
   - yum -y install createrepo mock redhat-rpm-config rpmdevtools
-  - yum -y install openssl-devel
+  - yum -y install openssl-devel bc
 
 pages:
   script:
