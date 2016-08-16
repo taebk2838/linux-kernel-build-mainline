@@ -1,4 +1,4 @@
-image: centos:latest
+image: registry.gitlab.com/gbraad/centos:7
 
 before_script:
   - yum -y install git epel-release "@Development Tools"
@@ -7,13 +7,14 @@ before_script:
 
 pages:
   script:
-  - cat /etc/redhat-release
   - mkdir public
   - git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth 1
   - cp config linux/.config
   - cd linux
   - make olddefconfig
   - make rpm
+  - mv /root/rpmbuild/RPMS/x86_64/* ../public
+  - mv /root/rpmbuild/SRPMS/* ../public
   artifacts:
     paths:
     - public
