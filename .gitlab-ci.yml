@@ -17,9 +17,9 @@ pages:
   - mv /root/rpmbuild/RPMS/x86_64/* ./public
   - mv /root/rpmbuild/SRPMS/* ./public
   - createrepo --database ./public
+  - mv ./kernel-mainline.repo ./public
   - ls ./public/ | ./genindex.sh > ./index.html
   - mv ./index.html ./public
-  - mv ./kernel-mainline.repo ./public
   artifacts:
     paths:
     - public
