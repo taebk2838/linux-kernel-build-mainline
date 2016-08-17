@@ -19,6 +19,7 @@ pages:
   - createrepo --database ./public
   - ls ./public/ | ./genindex.sh > ./index.html
   - mv ./index.html ./public
+  - mv ./kernel-mainline.repo ./public
   artifacts:
     paths:
     - public
