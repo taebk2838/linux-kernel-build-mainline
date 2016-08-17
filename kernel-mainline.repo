@@ -1,0 +1,5 @@
+[kernel-mainline]
+name=Linux kernel mainline
+baseurl=http://gbraad.gitlab.io/linux-kernel-build-mainline
+enabled=1
+gpgcheck=0
