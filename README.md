@@ -10,7 +10,7 @@ packages can also be installed on Fedora.
 Usage
 -----
 
-Download the `kernel-mainline.repo` file and place it in `/etc/yum.repos.d`.
+Download the [kernel-mainline.repo](kernel-mainline.repo) file and place it in `/etc/yum.repos.d`.
 
 ```
 $ dnf install -y kernel  # or yum
