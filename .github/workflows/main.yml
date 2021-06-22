@@ -21,6 +21,7 @@ jobs:
             yum -y install sudo
             sudo yum -y install libmpc-devel mpfr-devel gmp-devel
             curl ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-4.9.2/gcc-4.9.2.tar.bz2 -O
+            ls
             tar xvfj gcc-4.9.2.tar.bz2
             cd gcc-4.9.2
             ./configure --disable-multilib --enable-languages=c,c++
