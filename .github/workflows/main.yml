@@ -20,6 +20,12 @@ jobs:
       run: |
             yum -y install sudo
             sudo yum -y install libmpc-devel mpfr-devel gmp-devel
+            curl ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-4.9.2/gcc-4.9.2.tar.bz2 -O
+            tar xvfj gcc-4.9.2.tar.bz2
+            cd gcc-4.9.2
+            ./configure --disable-multilib --enable-languages=c,c++
+            make -j 4
+            make install
             yum -y install git epel-release "@Development Tools"
             yum -y install createrepo mock redhat-rpm-config rpmdevtools
             yum -y install openssl openssl-devel bc
