@@ -18,6 +18,7 @@ jobs:
       uses: actions/checkout@v1
     - name: Build
       run: |
+            sudo yum -y install libmpc-devel mpfr-devel gmp-devel
             yum -y install git epel-release "@Development Tools"
             yum -y install createrepo mock redhat-rpm-config rpmdevtools
             yum -y install openssl openssl-devel bc
