@@ -4,6 +4,8 @@ FROM centos:7
 RUN \
   yum -y install sudo && \
   sudo yum -y install bzip2 && \
+  yum -y install build-essential && \
+  sudo yum -y install gcc && \
   sudo yum -y install libmpc-devel mpfr-devel gmp-devel && \
   curl ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-4.9.2/gcc-4.9.2.tar.bz2 -O && \
   ls && \
