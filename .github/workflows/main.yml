@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on: push
+
+jobs:
+  linux:
+    strategy:
+      matrix:
+        container:
+        - 'centos:7'
+    timeout-minutes: 300
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    steps:
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: Build
+      run: |
+            yum -y install git epel-release "@Development Tools"
+            yum -y install createrepo mock redhat-rpm-config rpmdevtools
+            yum -y install openssl openssl-devel bc
+            mkdir public
+            git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth 1
+            cp config linux/.config
+            cd linux
+            make olddefconfig
+            make rpm
+            cd ..
+            mv /root/rpmbuild/RPMS/x86_64/* ./public
+            mv /root/rpmbuild/SRPMS/* ./public
+            createrepo --database ./public
+            mv ./kernel-mainline.repo ./public
+            ls ./public/ | ./genindex.sh > ./index.html
+            mv ./index.html ./public
+            
+            
+            
+            
